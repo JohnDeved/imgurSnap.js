@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Imgur Snap!</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      .container {
+        position: absolute;
+        cursor: crosshair;
+        height: 100vh;
+        width: 100vw;
+      }
+      .selection {
+        position: absolute;
+        border: 1px solid grey;
+        background-color: rgba(172, 255, 47, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="selection"></div>
+    </div>
+    
+    <script>
+      require('./script.js')
+    </script>
+  </body>
+</html>
