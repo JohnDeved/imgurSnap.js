@@ -1,0 +1,1 @@
+imgurSnap.js
