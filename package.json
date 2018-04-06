@@ -5,7 +5,6 @@
   "main": "main.js",
   "dependencies": {
     "blob-to-buffer": "^1.2.7",
-    "electron-screencapture": "^1.1.0",
     "imgur-uploader": "^4.2.1",
     "jimp": "^0.2.28",
     "jquery": "^3.3.1",
@@ -17,7 +16,6 @@
   },
   "scripts": {
     "start": "electron .",
-    "rebuild": "electron-rebuild",
     "build": "electron-packager . --asar --out=releases"
   },
   "author": "",
