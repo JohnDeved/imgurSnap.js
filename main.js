@@ -22,7 +22,8 @@ const createWindow = () => {
     transparent: true,
     fullscreen: true,
     alwaysOnTop: true,
-    resizable: false
+    resizable: false,
+    skipTaskbar: true
   })
 
   mainWindow.setIgnoreMouseEvents(true)
@@ -34,7 +35,7 @@ const createWindow = () => {
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   globalShortcut.register('CommandOrControl+Shift+X', () => {
     mainWindow.setIgnoreMouseEvents(false)
