@@ -5,8 +5,9 @@ const imgurUploader = require('imgur-uploader')
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
-
 const globalShortcut = electron.globalShortcut
+const Tray = electron.Tray
+const Menu = electron.Menu
 
 const path = require('path')
 const url = require('url')
@@ -54,7 +55,21 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+  createWindow()
+  let appIcon = new Tray('./imgurSnap.ico')
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Take Screenshot',
+      accelerator: 'CommandOrControl+Shift+X',
+      type: 'normal',
+      click: () => mainWindow.setIgnoreMouseEvents(false)
+    },
+    {type: 'separator'},
+    {label: 'Exit', type: 'normal', click: () => app.quit()}
+  ])
+  appIcon.setContextMenu(contextMenu)
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
