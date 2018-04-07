@@ -55,6 +55,7 @@ class Selector {
 
   takeshot () {
     screenshot(img => {
+      new Audio('./sounds/snap.mp3').play()
       win.setIgnoreMouseEvents(true)
       $('.container').css('cursor', 'crosshair')
       blobToBuffer(img, (err, buffer) => {
@@ -65,7 +66,9 @@ class Selector {
             .write('test.png')
             .getBuffer(jimp.AUTO, (err, buffer) => {
               if (err) console.error(err)
-              main.uploadImgur(buffer)
+              main.uploadImgur(buffer, () => {
+                new Audio('./sounds/done.mp3').play()
+              })
             })
         })
       })

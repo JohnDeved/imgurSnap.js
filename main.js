@@ -73,10 +73,11 @@ app.on('activate', function () {
   }
 })
 
-exports.uploadImgur = buffer => {
+exports.uploadImgur = (buffer, cb) => {
   imgurUploader(buffer).then(data => {
     console.log(data)
     opn(data.link)
+    cb()
   })
 }
 
