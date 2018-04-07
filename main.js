@@ -1,6 +1,6 @@
 const opn = require('opn')
 const electron = require('electron')
-const imgurUploader = require('imgur-uploader')
+const request = require('request')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -89,12 +89,21 @@ app.on('activate', function () {
 })
 
 exports.uploadImgur = (buffer, cb) => {
-  imgurUploader(buffer).then(data => {
-    console.log(data)
-    opn(data.link)
+  let opt = {
+    url: 'https://api.imgur.com/3/image',
+    form: {
+      'image': buffer.toString('base64')
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Client-ID 49c04d7d744fa6b'
+    }
+  }
+  request.post(opt, (err, res, body) => {
+    if (err) console.error(err)
+    body = JSON.parse(body)
+    opn(body.data.link)
+    console.log(body)
     cb()
   })
 }
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
