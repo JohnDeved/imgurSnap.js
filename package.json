@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager ./ imgurSnap --asar --out=releases --overwrite --icon=imgurSnap.ico"
+    "build": "node build/dist"
   },
   "author": "",
   "license": "ISC"

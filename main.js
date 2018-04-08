@@ -57,7 +57,7 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   createWindow()
-  let appIcon = new Tray('./imgurSnap.ico')
+  let appIcon = new Tray('./view/images/imgurSnap.ico')
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Take Screenshot',
