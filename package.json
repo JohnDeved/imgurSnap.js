@@ -6,7 +6,7 @@
   "dependencies": {
     "blob-to-buffer": "^1.2.7",
     "jimp": "^0.2.28",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "opn": "^5.3.0",
     "request": "^2.85.0"
   },
